@@ -1,0 +1,492 @@
+[
+  {
+    "id": "transport-1",
+    "text": "${target[1]}在哪里？",
+    "audio": "audio/b0616ebd0379.mp3"
+  },
+  {
+    "id": "transport-2",
+    "text": "${item.sentence}",
+    "audio": "audio/bdfdf1b50d6b.mp3"
+  },
+  {
+    "id": "transport-3",
+    "text": "${item.prompt}",
+    "audio": "audio/24425c7af06e.mp3"
+  },
+  {
+    "id": "transport-4",
+    "text": "${item.answer}",
+    "audio": "audio/d178fb27f534.mp3"
+  },
+  {
+    "id": "transport-5",
+    "text": "答对啦！你真棒！",
+    "audio": "audio/8940fc7f6513.mp3"
+  },
+  {
+    "id": "transport-6",
+    "text": "再试一次！",
+    "audio": "audio/cb26ce5d5a7b.mp3"
+  },
+  {
+    "id": "transport-7",
+    "text": "汽车在哪里？",
+    "audio": "audio/cf89ab20e181.mp3"
+  },
+  {
+    "id": "transport-8",
+    "text": "自行车在哪里？",
+    "audio": "audio/9d9b235fa3fd.mp3"
+  },
+  {
+    "id": "transport-9",
+    "text": "公交车在哪里？",
+    "audio": "audio/f2ba7dc54474.mp3"
+  },
+  {
+    "id": "transport-10",
+    "text": "火车在哪里？",
+    "audio": "audio/4f668830f7b2.mp3"
+  },
+  {
+    "id": "transport-11",
+    "text": "飞机在哪里？",
+    "audio": "audio/c8a32034bb19.mp3"
+  },
+  {
+    "id": "transport-12",
+    "text": "船在哪里？",
+    "audio": "audio/7534c1abc442.mp3"
+  },
+  {
+    "id": "transport-13",
+    "text": "出租车在哪里？",
+    "audio": "audio/ee4dd9d53f83.mp3"
+  },
+  {
+    "id": "transport-14",
+    "text": "马车在哪里？",
+    "audio": "audio/f9bbaf4a40f4.mp3"
+  },
+  {
+    "id": "transport-15",
+    "text": "我坐汽车去超市。",
+    "audio": "audio/8e312ee551f1.mp3"
+  },
+  {
+    "id": "transport-16",
+    "text": "我坐公交车去上学。",
+    "audio": "audio/e2528051ca75.mp3"
+  },
+  {
+    "id": "transport-17",
+    "text": "我骑自行车去公园。",
+    "audio": "audio/bb92e1403c14.mp3"
+  },
+  {
+    "id": "transport-18",
+    "text": "我坐飞机去中国。",
+    "audio": "audio/172559b87893.mp3"
+  },
+  {
+    "id": "transport-19",
+    "text": "我坐出租车去机场。",
+    "audio": "audio/729350314003.mp3"
+  },
+  {
+    "id": "transport-20",
+    "text": "我坐马车去公园。",
+    "audio": "audio/ac0cedeeb761.mp3"
+  },
+  {
+    "id": "transport-21",
+    "text": "小朋友迷路了！谁来帮忙？",
+    "audio": "audio/50ee0f32f03d.mp3"
+  },
+  {
+    "id": "transport-22",
+    "text": "老爷爷摔倒了！谁来帮忙？",
+    "audio": "audio/de018a7030c6.mp3"
+  },
+  {
+    "id": "transport-23",
+    "text": "房子着火了！谁来帮忙？",
+    "audio": "audio/6fc3057d1f9e.mp3"
+  },
+  {
+    "id": "transport-24",
+    "text": "警察！警察开着警车来帮忙了！",
+    "audio": "audio/d460addee7e4.mp3"
+  },
+  {
+    "id": "transport-25",
+    "text": "救护车！医生坐救护车来帮忙了！",
+    "audio": "audio/deecf6a81870.mp3"
+  },
+  {
+    "id": "transport-26",
+    "text": "消防员！消防员开着消防车来救火了！",
+    "audio": "audio/46e3d1e0b476.mp3"
+  },
+  {
+    "id": "transport-27",
+    "text": "再听一次！",
+    "audio": "audio/ff7f789c6db3.mp3"
+  },
+  {
+    "id": "transport-28",
+    "text": "${safe(phrase)}",
+    "audio": "audio/73a121743299.mp3"
+  },
+  {
+    "id": "transport-29",
+    "text": "马车。",
+    "audio": "audio/a82f78cdb5bf.mp3"
+  },
+  {
+    "id": "transport-30",
+    "text": "这是马车。",
+    "audio": "audio/8db56fbf11c0.mp3"
+  },
+  {
+    "id": "transport-31",
+    "text": "自行车。",
+    "audio": "audio/227f641a546d.mp3"
+  },
+  {
+    "id": "transport-32",
+    "text": "我骑自行车。",
+    "audio": "audio/95eafb03a65a.mp3"
+  },
+  {
+    "id": "transport-33",
+    "text": "这是自行车。",
+    "audio": "audio/8f7e4bf11664.mp3"
+  },
+  {
+    "id": "transport-34",
+    "text": "汽车。",
+    "audio": "audio/ed31254506e8.mp3"
+  },
+  {
+    "id": "transport-35",
+    "text": "我坐汽车。",
+    "audio": "audio/027fa18f4af5.mp3"
+  },
+  {
+    "id": "transport-36",
+    "text": "这是汽车。",
+    "audio": "audio/2da8d595fc5e.mp3"
+  },
+  {
+    "id": "transport-37",
+    "text": "出租车。",
+    "audio": "audio/dddb1e774d1a.mp3"
+  },
+  {
+    "id": "transport-38",
+    "text": "我坐出租车。",
+    "audio": "audio/86de8c1e600b.mp3"
+  },
+  {
+    "id": "transport-39",
+    "text": "这是出租车。",
+    "audio": "audio/3e4ad80b4052.mp3"
+  },
+  {
+    "id": "transport-40",
+    "text": "公交车。",
+    "audio": "audio/a069d7e30882.mp3"
+  },
+  {
+    "id": "transport-41",
+    "text": "我坐公交车。",
+    "audio": "audio/afd688cd3bd0.mp3"
+  },
+  {
+    "id": "transport-42",
+    "text": "这是公交车。",
+    "audio": "audio/cd2b756aa193.mp3"
+  },
+  {
+    "id": "transport-43",
+    "text": "火车。",
+    "audio": "audio/bb51110d9488.mp3"
+  },
+  {
+    "id": "transport-44",
+    "text": "我坐火车。",
+    "audio": "audio/da2ac81225c4.mp3"
+  },
+  {
+    "id": "transport-45",
+    "text": "这是火车。",
+    "audio": "audio/477b7bddaef1.mp3"
+  },
+  {
+    "id": "transport-46",
+    "text": "飞机。",
+    "audio": "audio/49544ce5b878.mp3"
+  },
+  {
+    "id": "transport-47",
+    "text": "我坐飞机。",
+    "audio": "audio/e3570e77934c.mp3"
+  },
+  {
+    "id": "transport-48",
+    "text": "这是飞机。",
+    "audio": "audio/4e3cfd6683d1.mp3"
+  },
+  {
+    "id": "transport-49",
+    "text": "船。",
+    "audio": "audio/faca5b3f9c32.mp3"
+  },
+  {
+    "id": "transport-50",
+    "text": "我坐船。",
+    "audio": "audio/b9cf939477d1.mp3"
+  },
+  {
+    "id": "transport-51",
+    "text": "这是船。",
+    "audio": "audio/1e7cb653eda8.mp3"
+  },
+  {
+    "id": "transport-52",
+    "text": "警车。",
+    "audio": "audio/04301dd62cd3.mp3"
+  },
+  {
+    "id": "transport-53",
+    "text": "警察来帮忙。",
+    "audio": "audio/911bd8714089.mp3"
+  },
+  {
+    "id": "transport-54",
+    "text": "这是警车。",
+    "audio": "audio/30f19dc566d8.mp3"
+  },
+  {
+    "id": "transport-55",
+    "text": "警车在哪里？",
+    "audio": "audio/107a50c2c63c.mp3"
+  },
+  {
+    "id": "transport-56",
+    "text": "救护车。",
+    "audio": "audio/dc72201926e0.mp3"
+  },
+  {
+    "id": "transport-57",
+    "text": "救护车来了。",
+    "audio": "audio/c6f4403d0057.mp3"
+  },
+  {
+    "id": "transport-58",
+    "text": "这是救护车。",
+    "audio": "audio/516dcc11223d.mp3"
+  },
+  {
+    "id": "transport-59",
+    "text": "救护车在哪里？",
+    "audio": "audio/3b107cbe804c.mp3"
+  },
+  {
+    "id": "transport-60",
+    "text": "消防车。",
+    "audio": "audio/4f1e373d79de.mp3"
+  },
+  {
+    "id": "transport-61",
+    "text": "消防员来灭火。",
+    "audio": "audio/5bfb6d4d4341.mp3"
+  },
+  {
+    "id": "transport-62",
+    "text": "这是消防车。",
+    "audio": "audio/2f7f9e2d08a0.mp3"
+  },
+  {
+    "id": "transport-63",
+    "text": "消防车在哪里？",
+    "audio": "audio/d586f352189b.mp3"
+  },
+  {
+    "id": "transport-64",
+    "text": "我坐火车去玩。",
+    "audio": "audio/eab3067b3880.mp3"
+  },
+  {
+    "id": "transport-65",
+    "text": "我坐火车去游乐园。",
+    "audio": "audio/eeb67524b7f3.mp3"
+  },
+  {
+    "id": "transport-66",
+    "text": "我坐船去小岛玩。",
+    "audio": "audio/4e8774c7bbbc.mp3"
+  },
+  {
+    "id": "transport-67",
+    "text": "警察来了！",
+    "audio": "audio/c6740f429e9f.mp3"
+  },
+  {
+    "id": "transport-68",
+    "text": "老爷爷摔倒了！",
+    "audio": "audio/ddf3be3bc26f.mp3"
+  },
+  {
+    "id": "transport-69",
+    "text": "着火了！",
+    "audio": "audio/db71bf568a53.mp3"
+  },
+  {
+    "id": "transport-70",
+    "text": "我坐汽车去超市买东西。",
+    "audio": "audio/887bac40391d.mp3"
+  },
+  {
+    "id": "transport-71",
+    "text": "听一听！",
+    "audio": "audio/27520f512dc2.mp3"
+  },
+  {
+    "id": "transport-72",
+    "text": "找一找！",
+    "audio": "audio/088dbf203ab0.mp3"
+  },
+  {
+    "id": "transport-73",
+    "text": "谁不见了？",
+    "audio": "audio/ec3dc512d3cc.mp3"
+  },
+  {
+    "id": "transport-74",
+    "text": "对啦！",
+    "audio": "audio/4b7978bb0610.mp3"
+  },
+  {
+    "id": "transport-75",
+    "text": "你想坐什么？",
+    "audio": "audio/9602dd2bf1b4.mp3"
+  },
+  {
+    "id": "transport-76",
+    "text": "看图片，说一说！",
+    "audio": "audio/3313c731d265.mp3"
+  },
+  {
+    "id": "transport-77",
+    "text": "救护车来了！",
+    "audio": "audio/05d66fcc7041.mp3"
+  },
+  {
+    "id": "transport-78",
+    "text": "医生来帮忙。",
+    "audio": "audio/3c8587f501fb.mp3"
+  },
+  {
+    "id": "transport-79",
+    "text": "消防车来了！",
+    "audio": "audio/19a7f83c232a.mp3"
+  },
+  {
+    "id": "transport-80",
+    "text": "我坐马车。",
+    "audio": "audio/d855d8f4aecd.mp3"
+  },
+  {
+    "id": "transport-81",
+    "text": "谁来帮忙？",
+    "audio": "audio/a72834dc62bd.mp3"
+  },
+  {
+    "id": "transport-82",
+    "text": "警车！",
+    "audio": "audio/4fc62d17814c.mp3"
+  },
+  {
+    "id": "transport-83",
+    "text": "警车来帮忙！",
+    "audio": "audio/5fbfc51bc79c.mp3"
+  },
+  {
+    "id": "transport-84",
+    "text": "救护车！",
+    "audio": "audio/cf4b0f58d902.mp3"
+  },
+  {
+    "id": "transport-85",
+    "text": "救护车来帮忙！",
+    "audio": "audio/0b759f5ad7d0.mp3"
+  },
+  {
+    "id": "transport-86",
+    "text": "消防车！",
+    "audio": "audio/7deeeb3edf9c.mp3"
+  },
+  {
+    "id": "transport-87",
+    "text": "消防车来帮忙！",
+    "audio": "audio/7f4a04ebeba4.mp3"
+  },
+  {
+    "id": "transport-88",
+    "text": "原来是马车不见了！",
+    "audio": "audio/517b14aa8728.mp3"
+  },
+  {
+    "id": "transport-89",
+    "text": "原来是自行车不见了！",
+    "audio": "audio/2dcd92b2a47d.mp3"
+  },
+  {
+    "id": "transport-90",
+    "text": "原来是汽车不见了！",
+    "audio": "audio/c2dbd917b321.mp3"
+  },
+  {
+    "id": "transport-91",
+    "text": "原来是出租车不见了！",
+    "audio": "audio/0676ab871a95.mp3"
+  },
+  {
+    "id": "transport-92",
+    "text": "原来是公交车不见了！",
+    "audio": "audio/74d01391343f.mp3"
+  },
+  {
+    "id": "transport-93",
+    "text": "原来是火车不见了！",
+    "audio": "audio/aa6b7908ec55.mp3"
+  },
+  {
+    "id": "transport-94",
+    "text": "原来是飞机不见了！",
+    "audio": "audio/8ea74d62583c.mp3"
+  },
+  {
+    "id": "transport-95",
+    "text": "原来是船不见了！",
+    "audio": "audio/f7803d91e52b.mp3"
+  },
+  {
+    "id": "transport-96",
+    "text": "原来是警车不见了！",
+    "audio": "audio/27bd12e817d8.mp3"
+  },
+  {
+    "id": "transport-97",
+    "text": "原来是救护车不见了！",
+    "audio": "audio/1429a632eb99.mp3"
+  },
+  {
+    "id": "transport-98",
+    "text": "原来是消防车不见了！",
+    "audio": "audio/854d04fd8ef2.mp3"
+  }
+]
