@@ -1,0 +1,117 @@
+name: Build TTS Audio
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      subs: ${{ steps.find.outputs.subs }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: find
+        run: |
+          subs=$(find . -mindepth 2 -maxdepth 2 -name generate_audio.py -not -path './.git/*' \
+                 | xargs -n1 dirname | sed 's|^\./||' | sort | jq -R -s -c 'split("\n")[:-1]')
+          echo "subs=$subs" >> "$GITHUB_OUTPUT"
+          echo "检测到子目录: $subs"
+
+  build:
+    needs: detect
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sub: ${{ fromJSON(needs.detect.outputs.subs) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.sub }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install edge-tts
+
+      - name: Extract texts from HTML
+        run: |
+          python3 - <<'EOF'
+          import json, re
+          from pathlib import Path
+
+          htmls = sorted(Path(".").glob("*.html"))
+          print("找到 HTML:", [str(p) for p in htmls])
+          if not htmls:
+              raise SystemExit("没有找到 html 文件")
+
+          seen, texts = set(), []
+          for p in htmls:
+              html = p.read_text(encoding="utf-8")
+              batch = []
+              # 1) 静态属性 data-tts-text
+              batch.extend(re.findall(r'data-tts-text="([^"]+)"', html))
+              # 2) 动态清单 <script id="tts-texts">[...]</script>
+              m = re.search(r'<script[^>]*id="tts-texts"[^>]*>(.*?)</script>', html, re.S)
+              if m:
+                  try:
+                      batch.extend(json.loads(m.group(1)))
+                  except json.JSONDecodeError as e:
+                      raise SystemExit(f"{p} 的 tts-texts 清单不是合法 JSON: {e}")
+              for t in batch:
+                  t = t.strip()
+                  if t and t not in seen:
+                      seen.add(t)
+                      texts.append(t)
+
+          Path("tts-texts.json").write_text(
+              json.dumps(texts, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8"
+          )
+          print(f"提取 {len(texts)} 条 -> tts-texts.json")
+          EOF
+
+      - run: python generate_audio.py
+
+      - name: Generate tts-tests.json
+        run: |
+          python3 - <<'EOF'
+          import json, re
+          from pathlib import Path
+
+          sub = Path.cwd().name
+          texts = json.loads(Path("tts-texts.json").read_text(encoding="utf-8"))
+
+          raw = Path("audio/tts-manifest.js").read_text(encoding="utf-8")
+          m = re.search(r"=\s*(\{.*\})\s*;?\s*$", raw, re.S)
+          manifest = json.loads(m.group(1))
+
+          tests = []
+          for i, t in enumerate(texts):
+              audio = manifest.get(t)
+              if audio is None:
+                  print(f"警告: 文本没有音频: {t}")
+                  continue
+              tests.append({"id": f"{sub}-{i+1}", "text": t, "audio": audio})
+
+          Path("tts-tests.json").write_text(
+              json.dumps(tests, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8"
+          )
+          print(f"{sub}: {len(tests)} 条")
+          EOF
+
+      - name: Commit
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ${{ matrix.sub }}/tts-texts.json \
+                  ${{ matrix.sub }}/audio/ \
+                  ${{ matrix.sub }}/tts-tests.json
+          git diff --staged --quiet || git commit -m "chore: update TTS for ${{ matrix.sub }}"
+          git pull --rebase origin main || true
+          git push
