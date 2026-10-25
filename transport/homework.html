@@ -5,6 +5,76 @@
 <title>交通工具｜三天中文小游戏</title>
 <style>
 :root{--ink:#304d57;--muted:#69818a;--teal:#268a83;--light:#ecf9f5;--gold:#ffefc9;--border:#deecea}*{box-sizing:border-box}body{margin:0;font-family:system-ui,'Microsoft YaHei','PingFang SC',sans-serif;color:var(--ink);background:linear-gradient(135deg,#e9f8f3,#fffaf0 55%,#eef3ff);min-height:100vh}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #f6b65e;outline-offset:3px}.wrap{max-width:1040px;margin:auto;padding:18px 16px 40px}.top{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.back{background:#fff;border:1px solid var(--border);border-radius:999px;padding:10px 16px;text-decoration:none;color:var(--ink);font-weight:700}h1{font-size:clamp(27px,4vw,39px);margin:20px 0 5px}h2{font-size:clamp(23px,3vw,30px);margin:4px 0 8px}.lead{color:var(--muted);margin:0 0 18px}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.tab{padding:15px 8px;border-radius:19px;background:#fff;border:2px solid var(--border);font-weight:800;color:var(--ink)}.tab.active{background:#dcf4e9;border-color:#71bfa8}.panel{background:#ffffffee;border:2px solid white;border-radius:27px;box-shadow:0 12px 34px #376c6d15;padding:clamp(15px,3vw,30px);min-height:420px}.eyebrow{color:var(--teal);font-size:14px;font-weight:800}.hint{color:var(--muted);font-size:16px;line-height:1.6}.actions{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin:18px 0}.btn{background:#fff;border:2px solid var(--border);border-radius:999px;padding:10px 18px;font-weight:800;color:var(--ink)}.btn.primary{background:var(--teal);border-color:var(--teal);color:white}.btn:disabled{opacity:.45;cursor:default}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.tile{background:#fff;border:2px solid var(--border);border-radius:19px;padding:12px 8px;min-height:148px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink);font-weight:800;font-size:19px}.tile:hover:not(:disabled){border-color:#71bfa8}.tile img{width:100%;height:100px;object-fit:contain}.tile .emoji{font-size:70px;line-height:1.3}.tile.correct{border-color:#48b89a;background:#e7f9ef}.tile.wrong{border-color:#e5b48c;background:#fff4e9}.feedback{text-align:center;min-height:44px;font-size:22px;font-weight:800;color:#28856b;padding:8px}.progress{text-align:center;color:var(--muted);font-size:14px;font-weight:700}.pair{display:grid;grid-template-columns:minmax(0,1fr) 65px minmax(0,1fr);gap:10px;align-items:center;margin:20px auto;max-width:720px}.picture{background:#f1faf8;border:2px solid #dcece9;border-radius:22px;min-height:190px;padding:15px;text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;font-size:21px;font-weight:800}.picture img{max-width:100%;width:260px;height:145px;object-fit:contain}.picture .big{font-size:94px;line-height:1.2}.arrow{text-align:center;font-size:45px;color:#62a8a2}.sentence{text-align:center;font-size:clamp(23px,3.6vw,34px);font-weight:900;margin:20px 0}.choices{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin:14px 0}.choice{border:2px solid var(--border);background:white;border-radius:17px;padding:10px 14px;font-weight:800}.choice.selected{background:#e1f5ec;border-color:#56b699}.scenario{background:#f1f9f6;border-radius:20px;padding:22px;text-align:center;font-size:clamp(22px,3vw,30px);font-weight:800;margin:18px 0}.small{font-size:14px;color:var(--muted)}.end{margin-top:20px;text-align:center;background:#fff5d9;padding:16px;border-radius:20px}.audio-status{min-height:20px;text-align:center;color:#966a40;font-size:14px}.foot{text-align:center;font-size:13px;color:var(--muted);margin-top:22px}@media(max-width:560px){.grid{gap:7px}.tile{min-height:116px;padding:7px 3px;font-size:15px}.tile img{height:70px}.tile .emoji{font-size:44px}.pair{grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:5px}.picture{min-height:155px;padding:7px;font-size:17px}.picture img{height:100px}.picture .big{font-size:65px}.arrow{font-size:24px}.tab{font-size:14px;padding:13px 4px}}
+
+/* 堇墨课后作业：放大图片与点击区域，保留原有交互和音频 */
+.wrap{max-width:1180px}
+.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.tile{min-height:255px;padding:18px 12px;gap:12px;font-size:22px}
+.tile img{height:205px;max-width:100%;object-fit:contain}
+.tile .emoji{font-size:130px}
+.pair{max-width:1040px;grid-template-columns:minmax(0,1fr) 62px minmax(0,1fr);gap:16px}
+.picture{min-height:340px;padding:18px;font-size:25px;gap:12px}
+.picture img{width:100%;max-width:440px;height:270px;object-fit:contain}
+.picture .big{font-size:190px}
+.scenario{font-size:clamp(28px,3.5vw,38px);padding:26px}
+@media(max-width:760px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .tile{min-height:205px;padding:12px 8px;font-size:19px}
+ .tile img{height:160px}
+ .tile .emoji{font-size:95px}
+ .pair{gap:7px;grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr)}
+ .picture{min-height:235px;padding:10px;font-size:20px}
+ .picture img{height:175px}
+ .picture .big{font-size:115px}
+}
+@media(max-width:420px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .tile{min-height:165px;padding:8px 4px;font-size:17px}
+ .tile img{height:125px}
+ .tile .emoji{font-size:80px}
+ .picture{min-height:190px;padding:6px;font-size:17px}
+ .picture img{height:135px}
+ .picture .big{font-size:88px}
+}
+
+/* 交通工具名称：拼音在上，汉字在下；图片大小保持原放大版 */
+.vehicle-label{display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;line-height:1.25}
+.vehicle-label .pinyin{font-size:clamp(15px,1.8vw,21px);font-weight:650;color:#427c89;letter-spacing:.015em;white-space:normal}
+.vehicle-label .hanzi{font-size:clamp(19px,2.2vw,25px);font-weight:850;color:var(--ink)}
+@media(max-width:560px){.vehicle-label .pinyin{font-size:14px}.vehicle-label .hanzi{font-size:18px}.tile{gap:6px}}
+
+/* 2026-10-25: 进一步加大三天练习中的图片，保留拼音、音频和答题逻辑 */
+.wrap{max-width:1320px}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.tile{min-height:385px;padding:16px 16px 20px;gap:12px}
+.tile img{width:100%;height:305px;object-fit:contain}
+.tile .emoji{font-size:170px}
+.tile .vehicle-label{gap:5px}
+.pair{max-width:1200px;grid-template-columns:minmax(0,1fr) 55px minmax(0,1fr);gap:16px}
+.picture{min-height:440px;padding:16px;gap:12px}
+.picture img{width:100%;max-width:550px;height:365px;object-fit:contain}
+.picture .big{font-size:235px}
+@media(max-width:760px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .tile{min-height:280px;padding:10px 6px}
+ .tile img{height:215px}
+ .tile .emoji{font-size:120px}
+ .pair{grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);gap:5px}
+ .picture{min-height:290px;padding:7px}
+ .picture img{height:220px}
+ .picture .big{font-size:135px}
+}
+@media(max-width:520px){
+ .grid{grid-template-columns:1fr;gap:12px}
+ .tile{min-height:315px;padding:10px 14px}
+ .tile img{height:255px}
+ .tile .emoji{font-size:145px}
+ .pair{grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr)}
+ .picture{min-height:245px;padding:5px;font-size:17px}
+ .picture img{height:180px}
+ .picture .big{font-size:100px}
+ .arrow{font-size:22px}
+}
 </style>
 </head>
 <body><div class="wrap"><div class="top"><div>🌈 中文启蒙 · 课后小游戏</div><a class="back" href="index.html">← 返回交通工具课堂</a></div><h1>🚗 交通工具大闯关</h1><p class="lead">三天小游戏 · 听一听、找一找、说一说 · 不用写字</p><div class="tabs" id="tabs"></div><div class="audio-status" id="audioStatus" role="status" aria-live="polite"></div><main class="panel" id="app"></main><div class="foot">和爸爸妈妈一起玩，慢慢说，开心最重要 🌼</div></div>
@@ -18,6 +88,8 @@ const destinations=[{id:'car',place:'超市',icon:'🏪',sentence:'我坐汽车�
 const emergencies=[{icon:'🧒',prompt:'小朋友迷路了！谁来帮忙？',id:'police',name:'警车',answer:'警察！警察开着警车来帮忙了！'},{icon:'👴',prompt:'老爷爷摔倒了！谁来帮忙？',id:'ambulance',name:'救护车',answer:'救护车！医生坐救护车来帮忙了！'},{icon:'🏠🔥',prompt:'房子着火了！谁来帮忙？',id:'fire',name:'消防车',answer:'消防员！消防员开着消防车来救火了！'}];
 const emergencyOptions=[['police','警车','🚓'],['ambulance','救护车','🚑'],['fire','消防车','🚒']];
 const app=document.getElementById('app'),tabs=document.getElementById('tabs');let day=0,q=0,answered=false,points=[0,0,0],listenQuestions=[],speechMap={};let currentAudio=null;const audioStatus=document.getElementById('audioStatus');
+const vehiclePinyin={'汽车':'qì chē','自行车':'zì xíng chē','公交车':'gōng jiāo chē','火车':'huǒ chē','飞机':'fēi jī','船':'chuán','出租车':'chū zū chē','马车':'mǎ chē','警车':'jǐng chē','救护车':'jiù hù chē','消防车':'xiāo fáng chē'};
+function vehicleLabel(name){return `<span class="vehicle-label"><span class="pinyin">${vehiclePinyin[name]||''}</span><span class="hanzi">${name}</span></span>`}
 function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function img(id,emoji){return `<img src="assets/images/${id}.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">${emoji}</span>`}
 function escapeHTML(t){return String(t).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
@@ -75,8 +147,8 @@ function render(){tabs.innerHTML=['第一天 · 认一认','第二天 · 去哪�
 function feedback(correct,answer){const el=app.querySelector('#feedback');el.textContent=correct?'⭐ 答对啦！你真棒！':'再试一次！';if(correct){answered=true;points[day]++;speak('答对啦！你真棒！')}else speak('再试一次！');if(correct&&answer){const label=app.querySelector('#answer');if(label)label.textContent=answer}app.querySelectorAll('[data-answer]').forEach(b=>{if(correct)b.disabled=true})}
 function footerButtons(max){return `<div class="actions"><button class="btn" id="prev" ${q===0?'disabled':''}>← 上一题</button><button class="btn primary" id="next">${q===max-1?'再玩一遍 ↻':'下一题 →'}</button></div>`}
 function bindPaging(max){app.querySelector('#prev').onclick=()=>{q=Math.max(0,q-1);answered=false;render()};app.querySelector('#next').onclick=()=>{q++;if(q>=max){q=0;if(day===0)initQuestions()}answered=false;render()}}
-function renderDay1(){if(!listenQuestions.length)initQuestions();const item=listenQuestions[q],target=item.target;app.innerHTML=`<div class="eyebrow">🌟 第一天：交通工具在哪里？</div><h2>听一听，找一找</h2><p class="hint">点击“听题目”，然后选出正确的交通工具。</p><div class="progress">第 ${q+1} / ${listenQuestions.length} 题</div><div class="actions"><button class="btn primary" id="hear" data-tts-text="${target[1]}在哪里？">🔊 听题目</button></div><div class="grid">${item.options.map(v=>`<button class="tile" data-answer="${v[0]}">${img(v[0],v[2])}<span>${v[1]}</span></button>`).join('')}</div><div class="feedback" id="feedback" aria-live="polite"></div><div class="progress" id="answer"></div>${footerButtons(listenQuestions.length)}<div class="small">小挑战：选对以后，自己说“这是${target[1]}。”</div>`;app.querySelector('#hear').onclick=()=>speak(target[1]+'在哪里？');app.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{if(!answered)feedback(b.dataset.answer===target[0],'这是'+target[1]+'。')});bindPaging(listenQuestions.length)}
-function renderDay2(){const item=destinations[q],v=vehicles.find(v=>v[0]===item.id);app.innerHTML=`<div class="eyebrow">🌟 第二天：我们去哪里？</div><h2>看图片，说一说</h2><p class="hint">左边是交通工具，右边是目的地。先自己说，再点击“听一句”核对。</p><div class="progress">第 ${q+1} / ${destinations.length} 题</div><div class="pair"><div class="picture">${img(v[0],v[2])}<span>${v[1]}</span></div><div class="arrow">➜</div><div class="picture"><span class="big">${item.icon}</span><span>${item.place}</span></div></div><div class="sentence" id="sentence">我……去……</div><div class="actions"><button class="btn primary" id="reveal">✨ 看答案</button><button class="btn" id="hear" data-tts-text="${item.sentence}">🔊 听一句</button></div><div class="feedback" id="feedback"></div>${footerButtons(destinations.length)}<p class="small">记得：坐汽车、坐公交车、坐飞机；但是要说“骑自行车”。</p>`;app.querySelector('#reveal').onclick=()=>{app.querySelector('#sentence').textContent=item.sentence;app.querySelector('#feedback').textContent='🌟 说得真棒！'};app.querySelector('#hear').onclick=()=>{app.querySelector('#sentence').textContent=item.sentence;speak(item.sentence)};bindPaging(destinations.length)}
-function renderDay3(){const item=emergencies[q];app.innerHTML=`<div class="eyebrow">🌟 第三天：谁来帮忙？</div><h2>听情景，选一选</h2><p class="hint">家长可以先读题目，也可以点击“听情景”。</p><div class="progress">第 ${q+1} / ${emergencies.length} 题</div><div class="scenario">${item.icon}<div>${item.prompt}</div></div><div class="actions"><button class="btn primary" id="hear" data-tts-text="${item.prompt}">🔊 听情景</button></div><div class="grid">${emergencyOptions.map(v=>`<button class="tile" data-answer="${v[0]}">${img(v[0],v[2])}<span>${v[1]}</span></button>`).join('')}</div><div class="feedback" id="feedback" aria-live="polite"></div><div class="sentence" id="answer"></div><div class="actions"><button class="btn" id="full" data-tts-text="${item.answer}">🔊 听完整句子</button></div>${footerButtons(emergencies.length)}`;app.querySelector('#hear').onclick=()=>speak(item.prompt);app.querySelector('#full').onclick=()=>{app.querySelector('#answer').textContent=item.answer;speak(item.answer)};app.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{if(!answered){const correct=b.dataset.answer===item.id;feedback(correct,correct?item.answer:'')}});bindPaging(emergencies.length)}
+function renderDay1(){if(!listenQuestions.length)initQuestions();const item=listenQuestions[q],target=item.target;app.innerHTML=`<div class="eyebrow">🌟 第一天：交通工具在哪里？</div><h2>听一听，找一找</h2><p class="hint">点击“听题目”，然后选出正确的交通工具。</p><div class="progress">第 ${q+1} / ${listenQuestions.length} 题</div><div class="actions"><button class="btn primary" id="hear" data-tts-text="${target[1]}在哪里？">🔊 听题目</button></div><div class="grid">${item.options.map(v=>`<button class="tile" data-answer="${v[0]}">${img(v[0],v[2])}${vehicleLabel(v[1])}</button>`).join('')}</div><div class="feedback" id="feedback" aria-live="polite"></div><div class="progress" id="answer"></div>${footerButtons(listenQuestions.length)}<div class="small">小挑战：选对以后，自己说“这是${target[1]}。”</div>`;app.querySelector('#hear').onclick=()=>speak(target[1]+'在哪里？');app.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{if(!answered)feedback(b.dataset.answer===target[0],'这是'+target[1]+'。')});bindPaging(listenQuestions.length)}
+function renderDay2(){const item=destinations[q],v=vehicles.find(v=>v[0]===item.id);app.innerHTML=`<div class="eyebrow">🌟 第二天：我们去哪里？</div><h2>看图片，说一说</h2><p class="hint">左边是交通工具，右边是目的地。先自己说，再点击“听一句”核对。</p><div class="progress">第 ${q+1} / ${destinations.length} 题</div><div class="pair"><div class="picture">${img(v[0],v[2])}${vehicleLabel(v[1])}</div><div class="arrow">➜</div><div class="picture"><span class="big">${item.icon}</span><span>${item.place}</span></div></div><div class="sentence" id="sentence">我……去……</div><div class="actions"><button class="btn primary" id="reveal">✨ 看答案</button><button class="btn" id="hear" data-tts-text="${item.sentence}">🔊 听一句</button></div><div class="feedback" id="feedback"></div>${footerButtons(destinations.length)}<p class="small">记得：坐汽车、坐公交车、坐飞机；但是要说“骑自行车”。</p>`;app.querySelector('#reveal').onclick=()=>{app.querySelector('#sentence').textContent=item.sentence;app.querySelector('#feedback').textContent='🌟 说得真棒！'};app.querySelector('#hear').onclick=()=>{app.querySelector('#sentence').textContent=item.sentence;speak(item.sentence)};bindPaging(destinations.length)}
+function renderDay3(){const item=emergencies[q];app.innerHTML=`<div class="eyebrow">🌟 第三天：谁来帮忙？</div><h2>听情景，选一选</h2><p class="hint">家长可以先读题目，也可以点击“听情景”。</p><div class="progress">第 ${q+1} / ${emergencies.length} 题</div><div class="scenario">${item.icon}<div>${item.prompt}</div></div><div class="actions"><button class="btn primary" id="hear" data-tts-text="${item.prompt}">🔊 听情景</button></div><div class="grid">${emergencyOptions.map(v=>`<button class="tile" data-answer="${v[0]}">${img(v[0],v[2])}${vehicleLabel(v[1])}</button>`).join('')}</div><div class="feedback" id="feedback" aria-live="polite"></div><div class="sentence" id="answer"></div><div class="actions"><button class="btn" id="full" data-tts-text="${item.answer}">🔊 听完整句子</button></div>${footerButtons(emergencies.length)}`;app.querySelector('#hear').onclick=()=>speak(item.prompt);app.querySelector('#full').onclick=()=>{app.querySelector('#answer').textContent=item.answer;speak(item.answer)};app.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{if(!answered){const correct=b.dataset.answer===item.id;feedback(correct,correct?item.answer:'')}});bindPaging(emergencies.length)}
 initQuestions();render();
 </script></body></html>

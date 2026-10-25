@@ -36,6 +36,51 @@
  .picture-card{min-height:190px}
  .picture-card img{height:145px}
 }
+
+/* 2026-10-25: 更大、更清楚的教学图片；保留全部互动和音频功能 */
+header,.shell{max-width:1220px}
+.panel{padding:clamp(12px,2.5vw,28px)}
+/* 认识交通工具 */
+.hero{min-height:390px}
+.hero img.hero-img{max-height:440px;width:100%;object-fit:contain}
+/* 听一听，找一找：每行两张大图片 */
+.choice{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1040px;margin:0 auto}
+.choice .vehicle{min-height:300px;padding:12px}
+.choice .vehicle img.vehicle-img{height:275px;width:100%;object-fit:contain}
+/* 谁不见了：三张更大的图 */
+.memory{gap:16px;margin:26px auto;max-width:1080px}
+.tile{width:clamp(205px,28vw,320px);height:clamp(205px,28vw,320px);padding:8px}
+.tile img.tile-img{width:100%;height:100%;object-fit:contain}
+/* 有什么用：放大情景图 */
+.uses{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px}
+.use img{height:330px;object-fit:contain;background:#f0f8fa}
+/* 我会说：车辆选择图和配对图 */
+.chip img{width:115px;height:90px;object-fit:contain}
+.chip{padding:10px 14px}
+#app .hero[style] img.hero-img{max-height:340px!important}
+#app .hero[style]{min-height:340px!important}
+.destination-pair{max-width:1080px;grid-template-columns:minmax(0,1fr) 55px minmax(0,1fr)}
+.picture-card{min-height:315px;padding:12px}
+.picture-card img{height:265px;object-fit:contain}
+.picture-card .place-emoji{font-size:155px}
+@media(max-width:700px){
+ .hero{min-height:270px}
+ .hero img.hero-img{max-height:320px}
+ .choice{gap:9px}
+ .choice .vehicle{min-height:205px;padding:6px}
+ .choice .vehicle img.vehicle-img{height:185px}
+ .memory{gap:6px}
+ .tile{width:calc((100vw - 62px)/3);height:clamp(112px,31vw,215px);padding:3px}
+ .uses{grid-template-columns:1fr}
+ .use img{height:300px}
+ .chip img{width:82px;height:67px}
+ #app .hero[style]{min-height:275px!important}
+ #app .hero[style] img.hero-img{max-height:275px!important}
+ .destination-pair{grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);gap:5px}
+ .picture-card{min-height:190px;padding:5px}
+ .picture-card img{height:165px}
+ .picture-card .place-emoji{font-size:90px}
+}
 </style></head><body><header><div><h1>🚗 交通工具小课堂</h1><div class="sub">听一听 · 指一指 · 说一说</div></div><div class="header-actions"><a class="btn back-link" href="../index.html" aria-label="返回中文启蒙小课堂总目录">← 返回总目录</a><button class="btn" id="repeat" data-tts-text="再听一次！">🔊 再听一次</button></div></header><div class="status" id="audioStatus" role="status"></div><div class="shell"><nav class="nav" id="nav" aria-label="学习模块"></nav><main class="panel" id="app"></main></div>
 <script type="application/json" id="tts-texts">["马车。", "这是马车。", "马车在哪里？", "自行车。", "我骑自行车。", "这是自行车。", "自行车在哪里？", "汽车。", "我坐汽车。", "这是汽车。", "汽车在哪里？", "出租车。", "我坐出租车。", "这是出租车。", "出租车在哪里？", "公交车。", "我坐公交车。", "这是公交车。", "公交车在哪里？", "火车。", "我坐火车。", "这是火车。", "火车在哪里？", "飞机。", "我坐飞机。", "这是飞机。", "飞机在哪里？", "船。", "我坐船。", "这是船。", "船在哪里？", "警车。", "警察来帮忙。", "这是警车。", "警车在哪里？", "救护车。", "救护车来了。", "这是救护车。", "救护车在哪里？", "消防车。", "消防员来灭火。", "这是消防车。", "消防车在哪里？", "我坐公交车去上学。", "我坐火车去玩。", "我坐火车去游乐园。", "我坐飞机去中国。", "我骑自行车去公园。", "我坐船去小岛玩。", "警察来了！", "老爷爷摔倒了！", "着火了！", "我坐汽车去超市。", "我坐汽车去超市买东西。", "我坐出租车去机场。", "我坐马车去公园。", "听一听！", "找一找！", "谁不见了？", "对啦！", "再试一次！", "你想坐什么？", "看图片，说一说！", "再听一次！", "救护车来了！", "医生来帮忙。", "消防车来了！", "我坐马车。", "谁来帮忙？", "警车！", "警车来帮忙！", "救护车！", "救护车来帮忙！", "消防车！", "消防车来帮忙！", "答对啦！你真棒！", "原来是马车不见了！", "原来是自行车不见了！", "原来是汽车不见了！", "原来是出租车不见了！", "原来是公交车不见了！", "原来是火车不见了！", "原来是飞机不见了！", "原来是船不见了！", "原来是警车不见了！", "原来是救护车不见了！", "原来是消防车不见了！", "小朋友迷路了！谁来帮忙？", "警察！警察开着警车来帮忙了！", "老爷爷摔倒了！谁来帮忙？", "救护车！医生坐救护车来帮忙了！", "房子着火了！谁来帮忙？", "消防员！消防员开着消防车来救火了！"]</script>
 <script src="audio/tts-manifest.js?v=20261025-2" onerror="document.addEventListener('DOMContentLoaded',function(){var e=document.getElementById('audioStatus');if(e)e.textContent='无法加载音频清单：audio/tts-manifest.js。请检查 GitHub Pages 中的文件。'})"></script>
