@@ -1,0 +1,11 @@
+所有图片文件名已经与 index.html 对应，直接使用，无需改名。
+
+交通工具：carriage.jpg 马车；bike.jpg 自行车；car.jpg 汽车；taxi.jpg 出租车；bus.jpg 公交车；train.jpg 火车；plane.jpg 飞机；boat.jpg 船；police.jpg 警车；ambulance.jpg 救护车；fire.jpg 消防车。
+
+用途场景：school.jpg 公交车去上学；travel.jpg 去旅行；park.jpg 骑自行车去公园；police-help.jpg 警察帮助小朋友；oldman-help.jpg 救护车帮助摔倒的老爷爷；fire-help.jpg 消防员灭火。
+
+其他图片用于游戏及辅助场景。
+
+注意：school.jpg 是独立生成的高清插画；其他多数为拼图分割素材，适合小卡片，非逐张高清生成。
+
+TTS音频尚需通过预生成流程放到 assets/audio/speech/。
