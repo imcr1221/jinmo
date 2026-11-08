@@ -12,7 +12,7 @@ on:
 permissions:
   contents: write
 
-# Avoid two runs pushing generated audio at the same time.
+# 避免两次运行同时 push 导致冲突
 concurrency:
   group: build-tts-${{ github.ref }}
   cancel-in-progress: false
@@ -20,7 +20,7 @@ concurrency:
 jobs:
   build-tts:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -35,26 +35,35 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install --upgrade edge-tts
+          # 锁定大版本，防止 edge-tts 未来更新导致不兼容
+          python -m pip install 'edge-tts>=6.1.12,<7'
 
       - name: Generate audio and manifests
-        run: timeout 1500 python generate_audio.py
+        run: |
+          python generate_audio.py
+          # 如果第一轮跑完发现有缺失的句子，等待 15 秒重试一次（应对微软接口偶发限流）
+          if grep -q '[^[:space:]]' */audio/tts-missing.txt audio/tts-missing.txt 2>/dev/null; then
+            echo "⚠️ 发现部分语音未生成，等待 15 秒后自动重试一轮..."
+            sleep 15
+            python generate_audio.py
+          fi
 
-      # 先提交已成功生成的音频，再检查缺失；
-      # 这样即使有少量条目失败，其余音频也能落库，重跑只补缺失部分。
       - name: Commit and push generated audio files
         if: always()
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
 
-          # 跨目录匹配所有 */audio/** 下的文件（Git 原生 glob magic）
-          git add -A -- ':(glob)**/audio/**'
+          # 跨目录匹配所有 audio 文件夹（包括根目录和子目录）
+          git add -A -- 'audio/**' ':(glob)**/audio/**'
 
           if git diff --cached --quiet; then
             echo "No generated audio changes."
           else
             git commit -m "Auto-generate TTS audio and manifests"
+            
+            # 【关键修复】先拉取远端最新代码并变基，避免 push rejected
+            git pull --rebase origin main || true
             git push
           fi
 
@@ -64,15 +73,17 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           missing = []
-          for file in sorted(Path('.').glob('*/audio/tts-missing.txt')):
+          # 递归查找所有子目录下的缺失记录
+          for file in sorted(Path('.').glob('**/audio/tts-missing.txt')):
               lines = [s.strip() for s in file.read_text(encoding='utf-8').splitlines() if s.strip()]
               if lines:
                   missing.append((str(file), lines))
+          
           if missing:
               for filename, lines in missing:
                   print(f'::error file={filename}::{len(lines)} 条语音未生成')
                   for line in lines[:10]:
                       print('  -', line)
-              raise SystemExit('存在未生成的语音，请查看日志并重新运行 workflow')
+              raise SystemExit('存在未生成的语音，请查看上方报错日志。')
           print('所有已检测课程的语音生成成功。')
           PY
