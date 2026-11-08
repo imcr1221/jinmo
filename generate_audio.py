@@ -9,7 +9,7 @@ from pathlib import Path
 import edge_tts
 
 VOICE = 'zh-CN-XiaoxiaoNeural'
-RATE = '-10%'
+RATE = '-25%'
 ROOT = Path(__file__).resolve().parent
 SEM = asyncio.Semaphore(3)
 
