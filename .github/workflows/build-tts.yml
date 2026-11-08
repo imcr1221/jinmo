@@ -35,7 +35,6 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # 锁定大版本，防止 edge-tts 未来更新导致不兼容
           python -m pip install 'edge-tts>=6.1.12,<7'
 
       - name: Generate audio and manifests
@@ -54,15 +53,15 @@ jobs:
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
 
-          # 跨目录匹配所有 audio 文件夹（包括根目录和子目录）
-          git add -A -- 'audio/**' ':(glob)**/audio/**'
+          # 使用 find 查找所有实际存在的 audio 目录（无论根目录还是子目录），并添加里面的文件
+          find . -type d -name 'audio' -not -path './.git/*' -print0 | xargs -0 -r git add -A --
 
           if git diff --cached --quiet; then
             echo "No generated audio changes."
           else
             git commit -m "Auto-generate TTS audio and manifests"
             
-            # 【关键修复】先拉取远端最新代码并变基，避免 push rejected
+            # 先拉取远端最新代码并变基，避免 push rejected
             git pull --rebase origin main || true
             git push
           fi
@@ -73,7 +72,6 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           missing = []
-          # 递归查找所有子目录下的缺失记录
           for file in sorted(Path('.').glob('**/audio/tts-missing.txt')):
               lines = [s.strip() for s in file.read_text(encoding='utf-8').splitlines() if s.strip()]
               if lines:
