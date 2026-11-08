@@ -12,7 +12,6 @@ on:
 permissions:
   contents: write
 
-# 避免两次运行同时 push 导致冲突
 concurrency:
   group: build-tts-${{ github.ref }}
   cancel-in-progress: false
@@ -35,12 +34,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install 'edge-tts>=6.1.12,<7'
+          # 【核心修复】升级 edge-tts 以支持新的 v2 安全令牌
+          python -m pip install 'edge-tts>=7.3.1,<8'
 
       - name: Generate audio and manifests
         run: |
           python generate_audio.py
-          # 如果第一轮跑完发现有缺失的句子，等待 15 秒重试一次（应对微软接口偶发限流）
           if grep -q '[^[:space:]]' */audio/tts-missing.txt audio/tts-missing.txt 2>/dev/null; then
             echo "⚠️ 发现部分语音未生成，等待 15 秒后自动重试一轮..."
             sleep 15
@@ -53,15 +52,12 @@ jobs:
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
 
-          # 使用 find 查找所有实际存在的 audio 目录（无论根目录还是子目录），并添加里面的文件
           find . -type d -name 'audio' -not -path './.git/*' -print0 | xargs -0 -r git add -A --
 
           if git diff --cached --quiet; then
             echo "No generated audio changes."
           else
             git commit -m "Auto-generate TTS audio and manifests"
-            
-            # 先拉取远端最新代码并变基，避免 push rejected
             git pull --rebase origin main || true
             git push
           fi
