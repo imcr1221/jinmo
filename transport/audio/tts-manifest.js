@@ -1,8 +1,8 @@
 window.TTS_AUDIO = {
-  "再听一次！": "tts_94a896596bf240d7e620.mp3",
   "你想坐什么？": "tts_0d3695b3f7bc96405c61.mp3",
   "公交车。": "tts_5041bd2bddb30442ecf1.mp3",
   "公交车在哪里？": "tts_570f1f5967e13ffff966.mp3",
+  "再听一次！": "tts_94a896596bf240d7e620.mp3",
   "再试一次！": "tts_d577074a0f8eebca82e9.mp3",
   "出租车。": "tts_08bff1d22056f966fcdc.mp3",
   "出租车在哪里？": "tts_537a06d5bcce01de4457.mp3",
