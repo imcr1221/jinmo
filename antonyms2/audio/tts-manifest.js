@@ -33,5 +33,11 @@ window.TTS_AUDIO = {
   "近": "tts_4368c916fccdc9d7fd7d.mp3",
   "远": "tts_3c94d49dacef96f80c8d.mp3",
   "长颈鹿高": "tts_987d778ea48fab540930.mp3",
-  "高": "tts_c30b5a4b3d74bfeb1a38.mp3"
+  "高": "tts_c30b5a4b3d74bfeb1a38.mp3",
+  "交换位置": "tts_dd0905c3126f1900e384.mp3",
+  "小猫跑过来，交换位置": "tts_6bf89e5f68e32f79291f.mp3",
+  "开始比赛": "tts_8c14a2a7addd138dad47.mp3",
+  "快": "tts_20a5e772c5826e9bdb79.mp3",
+  "慢": "tts_69a2ed1f14cb71a8fe0b.mp3",
+  "汽车近和远": "tts_e0a343655916d774cc73.mp3"
 };
