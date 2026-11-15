@@ -1,6 +1,7 @@
 window.TTS_AUDIO = {
   "一辆汽车快慢": "tts_f329e59b9f19aaada83f.mp3",
   "乌龟慢": "tts_b8ef9b273b25c23db7c9.mp3",
+  "交换位置": "tts_dd0905c3126f1900e384.mp3",
   "再来一次": "tts_27a4de040f378ec4425f.mp3",
   "再看一看": "tts_0346ead9a91db5a55c9e.mp3",
   "哪个水果近？": "tts_d760f65bf31a83b58fb2.mp3",
@@ -13,12 +14,17 @@ window.TTS_AUDIO = {
   "小兔子快": "tts_4c88fa4d8632d53a8531.mp3",
   "小狗近": "tts_57b25d1a84577341d356.mp3",
   "小狗远": "tts_e391faa670a71ebfcc02.mp3",
+  "小猫跑过来，交换位置": "tts_6bf89e5f68e32f79291f.mp3",
   "小猫近": "tts_89cd3e17ba82d6ed91c7.mp3",
   "小猫远": "tts_320da239fec4e6b2abc9.mp3",
   "小羊矮": "tts_58586de59919285e45af.mp3",
   "开始": "tts_fed118a2cd37e9462d92.mp3",
+  "开始比赛": "tts_8c14a2a7addd138dad47.mp3",
+  "快": "tts_20a5e772c5826e9bdb79.mp3",
   "快快拍手": "tts_639770ec5dc9299c158b.mp3",
+  "慢": "tts_69a2ed1f14cb71a8fe0b.mp3",
   "慢慢拍手": "tts_49f66177d3d015477595.mp3",
+  "汽车近和远": "tts_e0a343655916d774cc73.mp3",
   "爸爸最高": "tts_6532cd93aef6b84cb549.mp3",
   "爸爸比妈妈高": "tts_3d4e0102d7d5f21d46ed.mp3",
   "爸爸高": "tts_aab47638d66f4894605b.mp3",
@@ -33,11 +39,5 @@ window.TTS_AUDIO = {
   "近": "tts_4368c916fccdc9d7fd7d.mp3",
   "远": "tts_3c94d49dacef96f80c8d.mp3",
   "长颈鹿高": "tts_987d778ea48fab540930.mp3",
-  "高": "tts_c30b5a4b3d74bfeb1a38.mp3",
-  "交换位置": "tts_dd0905c3126f1900e384.mp3",
-  "小猫跑过来，交换位置": "tts_6bf89e5f68e32f79291f.mp3",
-  "开始比赛": "tts_8c14a2a7addd138dad47.mp3",
-  "快": "tts_20a5e772c5826e9bdb79.mp3",
-  "慢": "tts_69a2ed1f14cb71a8fe0b.mp3",
-  "汽车近和远": "tts_e0a343655916d774cc73.mp3"
+  "高": "tts_c30b5a4b3d74bfeb1a38.mp3"
 };
